@@ -1,0 +1,24 @@
+{
+    "name": "softlab/history",
+    "type": "library",
+    "minimum-stability": "dev",
+    "require": {
+	"panoscape/history": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Softlab\\History\\": "src/"
+        }
+    },
+    "extra": {
+	    "laravel": {
+	        "providers": [
+                    "Softlab\\History\\AdminSectionsServiceProvider",
+                    "Softlab\\History\\HistoryServiceProvider"
+	        ],
+	        "aliases": {
+                    "History": "Softlab\\History\\HistoryFacade"
+	        }
+	    }
+	}
+}

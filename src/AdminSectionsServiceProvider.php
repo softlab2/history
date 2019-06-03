@@ -1,6 +1,6 @@
 <?php
 
-namespace Softlab\Metatags;
+namespace Softlab\History;
 
 use SleepingOwl\Admin\Contracts\Widgets\WidgetsRegistryInterface;
 use SleepingOwl\Admin\Providers\AdminSectionsServiceProvider as ServiceProvider;
@@ -15,14 +15,14 @@ class AdminSectionsServiceProvider extends ServiceProvider
 {
 
     protected $policies = [
-        \Softlab\Metatags\Admin\Http\Sections\Metatags::class => \Softlab\Metatags\Admin\Policies\MetatagsSectionModelPolicy::class,
+        \Softlab\History\Admin\Http\Sections\Histories::class => \Softlab\History\Admin\Policies\HistoriesSectionModelPolicy::class,
     ];
 
     /**
      * @var array
      */
     protected $sections = [
-        \Softlab\Metatags\Models\Metatag::class => \Softlab\Metatags\Admin\Http\Sections\Metatags::class,
+        \Softlab\History\Models\History::class => \Softlab\History\Admin\Http\Sections\Histories::class,
     ];
 
     public function register(){

@@ -22,7 +22,7 @@ class History {
 
     public function fireDisplay( $params = [] ){
         $model = $params['model'];
-        return AdminSection::getModel(\Panoscape\History\History::class)->fireDisplay(['model_id'=>$model->id]);
+        return AdminSection::getModel(\Softlab\History\Models\History::class)->fireDisplay(['model_id'=>$model->id]);
     }
 
 }

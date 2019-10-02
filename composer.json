@@ -2,8 +2,14 @@
     "name": "softlab/history",
     "type": "library",
     "minimum-stability": "dev",
+    "repositories": [
+	{
+	    "type": "git",
+	    "url": "https://github.com/softlab2/historiable"
+	}
+    ],
     "require": {
-	"panoscape/history": "^1.0"
+	"softlab2/historiable": "dev-master"
     },
     "autoload": {
         "psr-4": {

@@ -12,16 +12,16 @@
 	//     return $template->view('catalog::manager', ['11']);
 	// }]);
 Route::post('api/checkMakeCountersCommandProcess', function(){
-	$data = Cache::store('file')->get('catalog_command_makecounters_data', []);
-	$data['complete'] = !Cache::store('file')->get('catalog_command_makecounters_work');
+	$data = Cache::store(env('CACHE_STORE','file'))->get('catalog_command_makecounters_data', []);
+	$data['complete'] = !Cache::store(env('CACHE_STORE','file'))->get('catalog_command_makecounters_work');
 	return response()->json($data);
 });
 
 Route::post('api/dispatchMakeCountersCommand', function(){
-	$worked = Cache::store('file')->get('catalog_command_makecounters_work', false);
+	$worked = Cache::store(env('CACHE_STORE','file'))->get('catalog_command_makecounters_work', false);
 	if(!$worked){
-      	Cache::store('file')->put('catalog_command_makecounters_work', 1, 60);
-		$worked = Cache::store('file')->get('catalog_command_makecounters_work');
+      	Cache::store(env('CACHE_STORE','file'))->put('catalog_command_makecounters_work', 1, 60);
+		$worked = Cache::store(env('CACHE_STORE','file'))->get('catalog_command_makecounters_work');
 		//Artisan::call('queue:listen');
       	//Artisan::call('catalog:makecounters');
 		dispatch(new \Softlab\Catalog\Jobs\MakeCounters);
